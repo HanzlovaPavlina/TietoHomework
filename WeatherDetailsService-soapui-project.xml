@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="WeatherDetailsService" resourceRoot="" soapui-version="3.0.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="WeatherDetailsServiceSoap11" type="wsdl" bindingName="{http://pl/org/grzybek/tieto/endpoint/weather/soap/model}WeatherDetailsServiceSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/GrzybekTieto/endpoints/WeatherDetailsService.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/GrzybekTieto/endpoints/WeatherDetailsService.wsdl"><con:part><con:url>http://localhost:8080/GrzybekTieto/endpoints/WeatherDetailsService.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://pl/org/grzybek/tieto/endpoint/weather/soap/model" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch0="http://pl/org/grzybek/tieto/endpoint/weather/soap/model" xmlns:sch1="http://model.soap.weather.endpoint.tieto.grzybek.org.pl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://pl/org/grzybek/tieto/endpoint/weather/soap/model">
+  <wsdl:types>
+    <xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://pl/org/grzybek/tieto/endpoint/weather/soap/model" xmlns="http://pl/org/grzybek/tieto/endpoint/weather/soap/model" xmlns:weather="http://model.soap.weather.endpoint.tieto.grzybek.org.pl" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://model.soap.weather.endpoint.tieto.grzybek.org.pl"/>
+      <xsd:element name="WeatherDetailsRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="cityName" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="WeatherDetailsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" minOccurs="0" name="WeatherDetails" type="weather:WeatherDetails"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://model.soap.weather.endpoint.tieto.grzybek.org.pl" xmlns="http://model.soap.weather.endpoint.tieto.grzybek.org.pl" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="WeatherDetails" type="WeatherDetails"/>
+      <xs:complexType name="WeatherDetails">
+        <xs:sequence>
+          <xs:element name="CityName" type="xs:string"/>
+          <xs:element name="WindDescription" type="xs:string"/>
+          <xs:element name="WindDirection" type="xs:string"/>
+          <xs:element name="Weather" type="xs:string"/>
+          <xs:element name="RelativeHumidity" type="xs:string"/>
+          <xs:element name="Temperature" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="WeatherDetailsResponse">
+    <wsdl:part element="tns:WeatherDetailsResponse" name="WeatherDetailsResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="WeatherDetailsRequest">
+    <wsdl:part element="tns:WeatherDetailsRequest" name="WeatherDetailsRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="WeatherDetailsService">
+    <wsdl:operation name="WeatherDetails">
+      <wsdl:input message="tns:WeatherDetailsRequest" name="WeatherDetailsRequest"></wsdl:input>
+      <wsdl:output message="tns:WeatherDetailsResponse" name="WeatherDetailsResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WeatherDetailsServiceSoap11" type="tns:WeatherDetailsService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="WeatherDetails">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="WeatherDetailsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="WeatherDetailsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WeatherDetailsServices">
+    <wsdl:port binding="tns:WeatherDetailsServiceSoap11" name="WeatherDetailsServiceSoap11">
+      <soap:address location="http://localhost:8080/GrzybekTieto/endpoints"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/GrzybekTieto/endpoints</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="WeatherDetails" bindingOperationName="WeatherDetails" type="Request-Response" outputName="WeatherDetailsResponse" inputName="WeatherDetailsRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="GetAllCitiesWithNoParameters"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/GrzybekTieto/endpoints</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mod="http://pl/org/grzybek/tieto/endpoint/weather/soap/model">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mod:WeatherDetailsRequest>
+      </mod:WeatherDetailsRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://pl/org/grzybek/tieto/endpoint/weather/soap/model/WeatherDetailsService/WeatherDetailsRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="GetSingleCity"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/GrzybekTieto/endpoints</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mod="http://pl/org/grzybek/tieto/endpoint/weather/soap/model">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mod:WeatherDetailsRequest>
+	<mod:cityName>Riga</mod:cityName>
+      </mod:WeatherDetailsRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://pl/org/grzybek/tieto/endpoint/weather/soap/model/WeatherDetailsService/WeatherDetailsRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call name="GetAllCitiesOneByOne"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/GrzybekTieto/endpoints</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mod="http://pl/org/grzybek/tieto/endpoint/weather/soap/model">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mod:WeatherDetailsRequest>
+         <mod:cityName>Vilnius</mod:cityName>
+         <mod:cityName>Riga</mod:cityName>
+         <mod:cityName>Tallinn</mod:cityName>
+         <mod:cityName>Helsinki</mod:cityName>
+      </mod:WeatherDetailsRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://pl/org/grzybek/tieto/endpoint/weather/soap/model/WeatherDetailsService/WeatherDetailsRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="Rest service" type="rest" basePath="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>http://localhost:8080</con:endpoint></con:endpoints><con:resource name="Riga" path="/GrzybekTieto/weather/Riga"><con:settings/><con:parameters/><con:method name="Get weather" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>text/html</con:mediaType><con:status>401 406</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:riga="http://localhost/GrzybekTieto/weather/Riga">riga:Response</con:element></con:representation><con:request name="Riga" mediaType="application/xml" accept="application/json"><con:settings><con:setting id="RecordRequestRepresentations">true</con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:credentials><con:username>weather</con:username><con:password>w34th3r</con:password></con:credentials><con:parameters/></con:request></con:method></con:resource><con:resource name="Helsinki" path="/GrzybekTieto/weather/Helsinki"><con:settings/><con:parameters/><con:method name="Get weather" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>text/html</con:mediaType><con:status>500</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:hel="http://localhost/GrzybekTieto/weather/Helsinki">hel:Response</con:element></con:representation><con:request name="Request 1" mediaType="application/xml"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:credentials><con:username>weather</con:username><con:password>w34th3r</con:password></con:credentials><con:parameters/></con:request></con:method></con:resource><con:resource name="Tallinn" path="/GrzybekTieto/weather/Tallinn"><con:settings/><con:parameters/><con:method name="Get weather" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:tal="http://localhost/GrzybekTieto/weather/Tallinn">tal:Response</con:element></con:representation><con:request name="Request 1" mediaType="application/xml"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:credentials><con:username>weather</con:username><con:password>w34th3r</con:password></con:credentials><con:parameters/></con:request></con:method></con:resource><con:resource name="Vilnius" path="/GrzybekTieto/weather/Vilnius"><con:settings/><con:parameters/><con:method name="Get weather" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:vil="http://localhost/GrzybekTieto/weather/Vilnius">vil:Response</con:element></con:representation><con:request name="Request 1" mediaType="application/xml"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:credentials><con:username>weather</con:username><con:password>w34th3r</con:password></con:credentials><con:parameters/></con:request></con:method></con:resource><con:resource name="All citites" path="/GrzybekTieto/weather"><con:settings/><con:parameters/><con:method name="Get weather" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:weat="http://localhost/GrzybekTieto/weather">weat:Response</con:element></con:representation><con:request name="Request 1" mediaType="application/xml"><con:settings/><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:credentials><con:username>weather</con:username><con:password>w34th3r</con:password></con:credentials><con:parameters/></con:request></con:method></con:resource></con:interface><con:properties/><con:wssContainer/></con:soapui-project>
