@@ -1,0 +1,92 @@
+<response>
+	<version>0.1</version>
+	<termsofService> http://www.wunderground.com/weather/api/d/terms.html </termsofService>
+	<features>
+		<feature>conditions</feature>
+	</features>
+	<current_observation>
+		<image>
+			<url> http://icons-ak.wxug.com/graphics/wu2/logo_130x80.png </url>
+			<title>Weather Underground</title>
+			<link>http://www.wunderground.com</link>
+		</image>
+		<display_location>
+			<full>Vilnius, Lithuania</full>
+			<city>Vilnius</city>
+			<state />
+			<state_name>Lithuania</state_name>
+			<country>L1</country>
+			<country_iso3166>LT</country_iso3166>
+			<zip>00000</zip>
+			<magic>1</magic>
+			<wmo>26730</wmo>
+			<latitude>54.63000107</latitude>
+			<longitude>25.28000069</longitude>
+			<elevation>156.00000000</elevation>
+		</display_location>
+		<observation_location>
+			<full>Vilnius,</full>
+			<city>Vilnius</city>
+			<state />
+			<country>L1</country>
+			<country_iso3166>LT</country_iso3166>
+			<latitude>54.63000107</latitude>
+			<longitude>25.28000069</longitude>
+			<elevation>512 ft</elevation>
+		</observation_location>
+		<estimated></estimated>
+		<station_id>EYVI</station_id>
+		<observation_time>Last Updated on August 18, 11:20 PM EEST</observation_time>
+		<observation_time_rfc822>Sun, 18 Aug 2013 23:20:00 +0300</observation_time_rfc822>
+		<observation_epoch>1376857200</observation_epoch>
+		<local_time_rfc822>Sun, 18 Aug 2013 23:37:33 +0300</local_time_rfc822>
+		<local_epoch>1376858253</local_epoch>
+		<local_tz_short>EEST</local_tz_short>
+		<local_tz_long>Europe/Vilnius</local_tz_long>
+		<local_tz_offset>+0300</local_tz_offset>
+		<weather>Clear</weather>
+		<temperature_string>64 F (18 C)</temperature_string>
+		<temp_f>64</temp_f>
+		<temp_c>18</temp_c>
+		<relative_humidity>64%</relative_humidity>
+		<wind_string>From the SSE at 8 MPH</wind_string>
+		<wind_dir>SSE</wind_dir>
+		<wind_degrees>150</wind_degrees>
+		<wind_mph>8</wind_mph>
+		<wind_gust_mph>0</wind_gust_mph>
+		<wind_kph>13</wind_kph>
+		<wind_gust_kph>0</wind_gust_kph>
+		<pressure_mb>1017</pressure_mb>
+		<pressure_in>30.04</pressure_in>
+		<pressure_trend>0</pressure_trend>
+		<dewpoint_string>52 F (11 C)</dewpoint_string>
+		<dewpoint_f>52</dewpoint_f>
+		<dewpoint_c>11</dewpoint_c>
+		<heat_index_string>NA</heat_index_string>
+		<heat_index_f>NA</heat_index_f>
+		<heat_index_c>NA</heat_index_c>
+		<windchill_string>NA</windchill_string>
+		<windchill_f>NA</windchill_f>
+		<windchill_c>NA</windchill_c>
+		<feelslike_string>64 F (18 C)</feelslike_string>
+		<feelslike_f>64</feelslike_f>
+		<feelslike_c>18</feelslike_c>
+		<visibility_mi>N/A</visibility_mi>
+		<visibility_km>N/A</visibility_km>
+		<solarradiation />
+		<UV>-1</UV>
+		<precip_1hr_string>-9999.00 in (-9999.00 mm)</precip_1hr_string>
+		<precip_1hr_in>-9999.00</precip_1hr_in>
+		<precip_1hr_metric>-9999.00</precip_1hr_metric>
+		<precip_today_string>0.00 in (0.0 mm)</precip_today_string>
+		<precip_today_in>0.00</precip_today_in>
+		<precip_today_metric>0.0</precip_today_metric>
+		<icon>clear</icon>
+		<icon_url>http://icons-ak.wxug.com/i/c/k/nt_clear.gif</icon_url>
+		<forecast_url> http://www.wunderground.com/global/stations/26730.html </forecast_url>
+		<history_url>
+			http://www.wunderground.com/history/airport/EYVI/2013/8/18/DailyHistory.html </history_url>
+		<ob_url>
+			http://www.wunderground.com/cgi-bin/findweather/getForecast?query=54.63000107,25.28000069 </ob_url>
+	</current_observation>
+</response>

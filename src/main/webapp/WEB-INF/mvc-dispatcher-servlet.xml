@@ -1,0 +1,96 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:sws="http://www.springframework.org/schema/web-services"
+	xmlns:cache="http://www.springframework.org/schema/cache" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security-3.1.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/web-services  
+        http://www.springframework.org/schema/web-services/web-services-2.0.xsd
+        http://www.springframework.org/schema/cache 
+        http://www.springframework.org/schema/cache/spring-cache.xsd
+        http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+
+	<context:component-scan base-package="pl.org.grzybek.tieto" />
+
+	<mvc:annotation-driven />
+	<cache:annotation-driven />
+
+	<bean id="ehcache"
+		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean"
+		p:config-location="/WEB-INF/ehcache.xml" />
+
+	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager"
+		p:cache-manager-ref="ehcache" />
+
+	<bean id="restTemplate" class="org.springframework.web.client.RestTemplate" />
+
+
+	<bean class="pl.org.grzybek.tieto.city.ConstructorBasedCityProvider">
+		<constructor-arg>
+			<map>
+				<entry key="Vilnius" value="Lithuania/Vilnius" />
+				<entry key="Riga" value="Latvia/Riga" />
+				<entry key="Tallinn" value="Estonia/Tallinn" />
+				<entry key="Helsinki" value="Finland/Helsinki" />
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<bean class="pl.org.grzybek.tieto.service.weather.storage.CacheableStorage" />
+
+
+	<bean
+		class="pl.org.grzybek.tieto.service.weather.AccessorBasedWeatherService">
+	</bean>
+
+	<bean id="wundergroundAccessor"
+		class="pl.org.grzybek.tieto.service.weather.accessor.wunderground.WundergroundWeatherAccessor">
+		<constructor-arg>
+			<value>7dcb955a349bf4b4</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="cacheableWeatherAccessor"
+		class="pl.org.grzybek.tieto.service.weather.accessor.CacheableWeatherAccessor">
+		<constructor-arg>
+			<ref bean="wundergroundAccessor" />
+		</constructor-arg>
+	</bean>
+
+	<bean primary="true" id="storageBasedCachedWeatherAccessor"
+		class="pl.org.grzybek.tieto.service.weather.accessor.StorageBasedCachedWeatherAccessor">
+		<constructor-arg>
+			<ref bean="cacheableWeatherAccessor" />
+		</constructor-arg>
+	</bean>
+
+
+	<!-- HTTP basic authentication in Spring Security -->
+	<security:http use-expressions="true">
+		<security:intercept-url pattern="/endpoints/**" access="permitAll" />
+		<security:intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
+		<security:http-basic />
+	</security:http>
+
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:password-encoder hash="md5" />
+			<security:user-service>
+				<security:user name="weather" password="a1a575463c979130c6c781c99cc97df5"
+					authorities="ROLE_USER" />
+			</security:user-service>
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+</beans>

@@ -1,0 +1,22 @@
+<ns3:WeatherDetailsResponse
+	xmlns:ns2="http://model.soap.weather.endpoint.tieto.grzybek.org.pl"
+	xmlns:ns3="http://pl/org/grzybek/tieto/endpoint/weather/soap/model">
+	<ns3:WeatherDetails>
+		<ns2:CityName>Vilnius</ns2:CityName>
+		<ns2:WindDescription>Calm</ns2:WindDescription>
+		<ns2:WindDirection>NNW</ns2:WindDirection>
+		<ns2:Weather>Clear</ns2:Weather>
+		<ns2:RelativeHumidity>69%</ns2:RelativeHumidity>
+		<ns2:Temperature>20.9</ns2:Temperature>
+		<ns2:ObservationTime>Time</ns2:ObservationTime>
+	</ns3:WeatherDetails>
+	<ns3:WeatherDetails>
+		<ns2:CityName>Praha</ns2:CityName>
+		<ns2:WindDescription>Calm2</ns2:WindDescription>
+		<ns2:WindDirection>NNW2</ns2:WindDirection>
+		<ns2:Weather>Clear2</ns2:Weather>
+		<ns2:RelativeHumidity>692%</ns2:RelativeHumidity>
+		<ns2:Temperature>20.92</ns2:Temperature>
+		<ns2:ObservationTime>Time2</ns2:ObservationTime>
+	</ns3:WeatherDetails>
+</ns3:WeatherDetailsResponse>

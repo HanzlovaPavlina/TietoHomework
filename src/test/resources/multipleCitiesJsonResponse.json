@@ -1,0 +1,20 @@
+{"result" : [ {
+	"location" : "Vilnius",
+	"temp_c": 20.9,
+	"observation_time": "Time",
+	"relative_humidity": "69%",
+	"wind_dir": "NNW",
+	"weather": "Clear",
+	"wind_string": "Calm"
+},
+{
+	"location" : "Riga",
+	"temp_c": 20.91,
+	"observation_time": "Time1",
+	"relative_humidity": "691%",
+	"wind_dir": "NNW1",
+	"weather": "Clear1",
+	"wind_string": "Calm1"
+}]
+
+}

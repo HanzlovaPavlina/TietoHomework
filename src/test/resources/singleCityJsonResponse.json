@@ -1,0 +1,10 @@
+{"result" : 
+	{"location":"Vilnius",
+	"temp_c":20.9,
+	"relative_humidity": "69%",
+	"observation_time": "Time",
+	"wind_dir": "NNW",
+	"weather": "Clear",
+	"wind_string": "Calm"
+	}
+}

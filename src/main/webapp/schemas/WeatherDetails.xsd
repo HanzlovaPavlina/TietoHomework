@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns="http://model.soap.weather.endpoint.tieto.grzybek.org.pl"
+	targetNamespace="http://model.soap.weather.endpoint.tieto.grzybek.org.pl"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="WeatherDetails" type="WeatherDetails" />
+	<xs:complexType name="WeatherDetails">
+		<xs:sequence>
+			<xs:element name="CityName" type="xs:string" />
+			<xs:element name="WindDescription" type="xs:string" />
+			<xs:element name="WindDirection" type="xs:string" />
+			<xs:element name="Weather" type="xs:string" />
+			<xs:element name="RelativeHumidity" type="xs:string" />
+			<xs:element name="Temperature" type="xs:string" />
+			<xs:element name="ObservationTime" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema> 

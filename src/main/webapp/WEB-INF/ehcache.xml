@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+
+	<defaultCache maxElementsInMemory="50" eternal="false"
+		overflowToDisk="false" memoryStoreEvictionPolicy="LFU" />
+
+	<!-- 3 hours cache -->
+	<cache name="weatherAccessorCache" maxElementsInMemory="50"
+		eternal="false" overflowToDisk="false" memoryStoreEvictionPolicy="LFU"
+		timeToIdleSeconds="0" timeToLiveSeconds="10800" />
+
+
+	<cache name="cacheableStorage" maxElementsInMemory="50" eternal="false"
+		overflowToDisk="false" memoryStoreEvictionPolicy="LFU" />
+
+</ehcache>
